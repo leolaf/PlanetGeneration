@@ -27,8 +27,6 @@ public class Planet : MonoBehaviour
         GeneratePlanet();
     }
 
-    // oui
-
     void Initialize()
     {
         shapeGenerator = new ShapeGenerator(shapeSettings);
@@ -44,7 +42,7 @@ public class Planet : MonoBehaviour
         {
             if (meshFilters[i] == null)
             {
-                GameObject meshObj = new GameObject("mesh");
+                GameObject meshObj = new GameObject($"Face ({i})");
                 meshObj.transform.parent = transform;
 
                 meshObj.AddComponent<MeshRenderer>().sharedMaterial = new Material(Shader.Find("Standard"));
