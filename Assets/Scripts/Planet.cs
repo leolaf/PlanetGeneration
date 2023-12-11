@@ -17,20 +17,21 @@ public class Planet : MonoBehaviour
         GenerateMesh();
     }
 
+    // oui
+
     void Initialize()
     {
         if (meshFilters == null || meshFilters.Length == 0)
         {
             meshFilters = new MeshFilter[6];
         }
-        Debug.Log(meshFilters.Length);
         terrainFaces = new TerrainFace[6];
 
         Vector3[] directions = {Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back};
 
         for (int i = 0; i < 6; i++)
         {
-            if (meshFilters[i] != null)
+            if (meshFilters[i] == null)
             {
                 GameObject meshObj = new GameObject("mesh");
                 meshObj.transform.parent = transform;
@@ -40,7 +41,6 @@ public class Planet : MonoBehaviour
                 meshFilters[i].sharedMesh = new Mesh();
             }
 
-            Debug.Log(meshFilters.Length);
             terrainFaces[i] = new TerrainFace(meshFilters[i].sharedMesh, resolution, directions[i]);
         }
     }
