@@ -27,8 +27,6 @@ public class Planet : MonoBehaviour
         GeneratePlanet();
     }
 
-    // oui
-
     void Initialize()
     {
         shapeGenerator = new ShapeGenerator(shapeSettings);
@@ -53,6 +51,11 @@ public class Planet : MonoBehaviour
             }
 
             terrainFaces[i] = new TerrainFace(shapeGenerator, meshFilters[i].sharedMesh, resolution, directions[i]);
+        }
+        
+        if(!gameObject.TryGetComponent(out SphereCollider sc))
+        {
+            gameObject.AddComponent<SphereCollider>();
         }
     }
 
