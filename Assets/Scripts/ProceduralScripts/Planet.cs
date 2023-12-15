@@ -106,4 +106,12 @@ public class Planet : MonoBehaviour
             }
         }
     }
+
+    public void SavePlanet()
+    {
+        // TODO save shape settings
+        // TODO save material 
+        // TODO save color settings
+        // TODO save gameobject as prefab
+    }
 }
