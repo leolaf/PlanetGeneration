@@ -66,6 +66,8 @@ public class TerrainFace
 
     public void UpdateUVs(ColorGenerator colorGenerator)
     {
+        if (mesh.uv.Length != resolution * resolution)
+            return;
         Vector2[] uv = mesh.uv;
 
         for (int y = 0; y < resolution; y++)
