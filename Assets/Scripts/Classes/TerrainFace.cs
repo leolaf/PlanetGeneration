@@ -10,9 +10,9 @@ public class TerrainFace
     ShapeGenerator shapeGenerator;
     Mesh mesh;
     int resolution;
-    Vector3 localUp;
-    Vector3 axisA;
-    Vector3 axisB;
+    Vector3 localUp; // which way the terrain face is facing (its Vector3.up)
+    Vector3 axisA; // the terrain face relative Vector.right
+    Vector3 axisB; // the terrain face relative Vector.forward
 
     public TerrainFace(ShapeGenerator shapeGenerator, Mesh mesh, int resolution, Vector3 localUp)
     {
@@ -38,7 +38,7 @@ public class TerrainFace
                 int i = x + y * resolution;
                 Vector2 percent = new Vector2(x, y) / (resolution - 1);
                 Vector3 pointOnUnitCube = localUp + (percent.x - 0.5f) * 2 * axisA + (percent.y - 0.5f) * 2 * axisB;
-                Vector3 pointOnUnitSphere = pointOnUnitCube.normalized;
+                Vector3 pointOnUnitSphere = pointOnUnitCube.normalized; // normalize position to "bend" the plane
                 float unscaledElevation = shapeGenerator.CalculateUnscaledElevation(pointOnUnitSphere);
                 vertices[i] = pointOnUnitSphere * shapeGenerator.GetScaledElevation(unscaledElevation);
                 uv[i].y = unscaledElevation;

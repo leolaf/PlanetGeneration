@@ -2,6 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Each planet is a sphere, we use 6 planes (corresponding to every face of a cube).
+ * We then normalize the position of each triangle to get a sphere shape.
+ * - Pros : each triangles are roughly the same size and the resolution of the plane can be changed easily
+ * - Cons : the surface normals aren't conistent around the edges, which will lead to visible seams when lit
+ * 
+ * The planet script is responsible for creating the 6 terrains faces
+ * and telling them which direction their normals are facing.
+ */
 public class Planet : MonoBehaviour
 {
     [Range(2, 255)]
@@ -42,6 +51,7 @@ public class Planet : MonoBehaviour
 
         Vector3[] directions = {Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back};
 
+        // loop to create each faces of the sphere
         for (int i = 0; i < 6; i++)
         {
             if (meshFilters[i] == null)
