@@ -9,55 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 033ace29e9551aa4cba1173a0043cffe, type: 3}
+  m_Script: {fileID: 11500000, guid: 7115b6227a1f31f4d997a5ba682557bd, type: 3}
   m_Name: MagmaColor
   m_EditorClassIdentifier: 
-  planetMaterial: {fileID: 2100000, guid: 63824b4ecae2d14408297082aded4a3a, type: 2}
+  planetMaterial: {fileID: 0}
   biomeColorSettings:
-    biomes:
-    - gradient:
-        serializedVersion: 2
-        key0: {r: 0.2688186, g: 0.17977929, b: 0.3773585, a: 1}
-        key1: {r: 0.06206968, g: 0.014195448, b: 0.103773594, a: 1}
-        key2: {r: 0.06206968, g: 0.014195448, b: 0.103773594, a: 1}
-        key3: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 0}
-        key4: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 0}
-        key5: {r: 0, g: 0, b: 0, a: 0}
-        key6: {r: 0, g: 0, b: 0, a: 0}
-        key7: {r: 0, g: 0, b: 0, a: 0}
-        ctime0: 2687
-        ctime1: 4048
-        ctime2: 31418
-        ctime3: 48766
-        ctime4: 63800
-        ctime5: 0
-        ctime6: 0
-        ctime7: 0
-        atime0: 0
-        atime1: 16962
-        atime2: 65535
-        atime3: 0
-        atime4: 0
-        atime5: 0
-        atime6: 0
-        atime7: 0
-        m_Mode: 2
-        m_ColorSpace: 0
-        m_NumColorKeys: 5
-        m_NumAlphaKeys: 3
-      tint: {r: 0, g: 0, b: 0, a: 0}
-      startHeight: 0
-      tintPercent: 0
+    biomes: []
     noise:
       filterType: 0
       simpleNoiseSettings:
-        strength: 1.74
-        numLayers: 4
-        baseRoughness: 1.75
+        strength: 1
+        numLayers: 1
+        baseRoughness: 1
         roughness: 2
-        persistence: 0.95
-        center: {x: 1.57, y: 0, z: 0}
-        minValue: 1.18
+        persistence: 0.5
+        center: {x: 0, y: 0, z: 0}
+        minValue: 0
       rigidNoiseSettings:
         strength: 1
         numLayers: 1
@@ -67,36 +34,36 @@ MonoBehaviour:
         center: {x: 0, y: 0, z: 0}
         minValue: 0
         weightMultipler: 0.8
-    noiseOffset: 1.41
-    noiseStrength: 3.64
-    blendAmount: 0.373
+    noiseOffset: 0
+    noiseStrength: 0
+    blendAmount: 0
   oceanColor:
     serializedVersion: 2
-    key0: {r: 0.1792453, g: 0.014339625, b: 0, a: 1}
-    key1: {r: 0.3962264, g: 0.034711946, b: 0.005606967, a: 1}
-    key2: {r: 1, g: 0.07450981, b: 0, a: 1}
-    key3: {r: 1, g: 0.4308149, b: 0, a: 0}
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 17733
-    ctime2: 49151
-    ctime3: 65535
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
     ctime4: 0
     ctime5: 0
     ctime6: 0
     ctime7: 0
     atime0: 0
     atime1: 65535
-    atime2: 65535
+    atime2: 0
     atime3: 0
     atime4: 0
     atime5: 0
     atime6: 0
     atime7: 0
-    m_Mode: 2
-    m_ColorSpace: 0
-    m_NumColorKeys: 4
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
     m_NumAlphaKeys: 2
