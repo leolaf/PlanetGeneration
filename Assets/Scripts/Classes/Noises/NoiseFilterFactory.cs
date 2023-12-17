@@ -4,6 +4,11 @@ using UnityEngine;
 
 public static class NoiseFilterFactory 
 {
+    /// <summary>
+    ///     Create a INoiseFilter based on the settings filter type
+    /// </summary>
+    /// <param name="settings">The noise settings</param>
+    /// <returns>A new instance of INoiseFilter of type equivalentof the one specified in the settings</returns>
     public static INoiseFilter CreateNoiseFilter(NoiseSettings settings)
     {
         switch(settings.filterType)

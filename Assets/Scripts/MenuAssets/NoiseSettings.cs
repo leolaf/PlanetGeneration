@@ -5,11 +5,13 @@ using UnityEngine;
 [System.Serializable]
 public class NoiseSettings
 {
+    // Filter types
     public enum FilterType
     {
         Simple,
         Rigid
     }
+    // Type of the current noise setting
     public FilterType filterType;
 
     [ConditionalHide("filterType",0)]

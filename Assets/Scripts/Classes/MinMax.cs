@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MinMax
 {
-    public float Min { get; private set; } 
-    public float Max { get; private set; }
+    public float Min { get; private set; }      // Minimum elevation of the planet
+    public float Max { get; private set; }      // Maximum elevatioon of the planet
 
     public MinMax() 
     {

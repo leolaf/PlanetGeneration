@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class ColorGenerator
 {
-    ColorSettings settings;
-    Texture2D texture = null;
-    const int textureResolution = 50;
-    INoiseFilter biomeNoiseFilter;
+    ColorSettings settings;                     // The setting file we use to get all the informations we need to evaluate a point color
+    
+    // The texture we will use in the shader
+    // (height = number of biome, width = resolution*2 (1/2 is ocean and 1/2 is biome color)
+    Texture2D texture = null;                   
+    
+    const int textureResolution = 50;           // The texture resolution
+    INoiseFilter biomeNoiseFilter;              // Noise to determine in which biome a point is stuated
 
+    /// <summary>
+    ///     Setup the color generator on each settings file change
+    /// </summary>
+    /// <param name="settings">The setting file</param>
     public void UpdateSettings(ColorSettings settings)
     {
         this.settings = settings;
@@ -19,15 +27,27 @@ public class ColorGenerator
         biomeNoiseFilter = NoiseFilterFactory.CreateNoiseFilter(settings.biomeColorSettings.noise);
     }
 
+    /// <summary>
+    ///     Update the material's shader parameter for it to know the elevation min and max
+    /// </summary>
+    /// <param name="elevationMinMax">MinMax instance in which the planet elevation informations is stored</param>
     public void UpdateElevation(MinMax elevationMinMax)
     {
         settings.planetMaterial.SetVector("_elevationMinMax", new Vector4(elevationMinMax.Min, elevationMinMax.Max));
     }
 
+    /// <summary>
+    ///     Get the biome index of a point blended by its distance to the next biome
+    /// </summary>
+    /// <param name="pointOnUnitSphere">The point on the planet</param>
+    /// <returns>The biome index of a point blended by its distance to the next biome</returns>
     public float BiomePercentFromPoint(Vector3 pointOnUnitSphere)
     {
+        // Get the point height
         float heightPercent = (pointOnUnitSphere.y + 1) / 2f;
+        // Apply biome noise on this height
         heightPercent += (biomeNoiseFilter.Evaluate(pointOnUnitSphere) - settings.biomeColorSettings.noiseOffset) * settings.biomeColorSettings.noiseStrength;
+        
         float biomeIndex = 0;
         int numBiomes = settings.biomeColorSettings.biomes.Length;
         float blendRange = settings.biomeColorSettings.blendAmount / 2f + .001f;
@@ -43,6 +63,9 @@ public class ColorGenerator
         return biomeIndex / Mathf.Max(1, numBiomes - 1);
     }
 
+    /// <summary>
+    ///     Update the texture use by the material and set its corresponding shader parameter
+    /// </summary>
     public void UpdateColors()
     {
         Color[] colors = new Color[texture.width * texture.height];

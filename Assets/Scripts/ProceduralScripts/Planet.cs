@@ -27,7 +27,8 @@ public class Planet : MonoBehaviour
     ShapeGenerator shapeGenerator = new ShapeGenerator();                           // Instance of ShapeGenerator that will build the planet mesh
     ColorGenerator colorGenerator = new ColorGenerator();                           // Instance of ColorGenerator that will build the planet texture
 
-    [SerializeField, HideInInspector] MeshFilter[] meshFilters;                     // Keep meshes in memory in order to not create GameObject at each update
+    [SerializeField, HideInInspector] 
+    MeshFilter[] meshFilters;                                                       // Keep meshes in memory in order to not create GameObject at each update
     TerrainFace[] terrainFaces;                                                     // TerrainFace array holding each terrain face of the planet
 
     // On Inspector value change, generate planet
@@ -138,6 +139,7 @@ public class Planet : MonoBehaviour
     public void SavePlanet()
     {
         // TODO save shape settings
+        // TODO save texture
         // TODO save material 
         // TODO save color settings
         // TODO save gameobject as prefab
