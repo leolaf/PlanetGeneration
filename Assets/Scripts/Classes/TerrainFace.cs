@@ -29,9 +29,9 @@ public class TerrainFace
         Vector3[] vertices = new Vector3[resolution * resolution];
         int[] triangles = new int[(resolution -1) * (resolution - 1) * 6];
         int triIndex = 0;
-        Vector2[] uv = (mesh.uv.Length == vertices.Length)?mesh.uv:new Vector2[vertices.Length];
+        Vector2[] uv = (mesh.uv.Length == vertices.Length) ? mesh.uv : new Vector2[vertices.Length];
 
-        for(int y = 0; y < resolution; y++)
+        for (int y = 0; y < resolution; y++)
         {
             for(int x = 0; x < resolution; x++)
             {
@@ -60,14 +60,11 @@ public class TerrainFace
         mesh.vertices = vertices;
         mesh.triangles = triangles;
         mesh.RecalculateNormals();
-        if(mesh.uv.Length == uv.Length)
-            mesh.uv = uv;
+        mesh.uv = uv;
     }
 
     public void UpdateUVs(ColorGenerator colorGenerator)
     {
-        if (mesh.uv.Length != resolution * resolution)
-            return;
         Vector2[] uv = mesh.uv;
 
         for (int y = 0; y < resolution; y++)
