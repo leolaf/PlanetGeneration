@@ -13,32 +13,32 @@ using UnityEngine;
  */
 public class Planet : MonoBehaviour
 {
-    [Range(2, 255)]
-    public int resolution = 10;
-    public bool autoUpdate = true;
-    public enum FaceRenderMask { All, Top, Bottom, Left, Right, Front, Back };
-    public FaceRenderMask faceRenderMask;
+    [Range(2, 255)] public int resolution = 10;                                     // Resolution of a TerrainFace
+    public bool autoUpdate = true;                                                  
+    public enum FaceRenderMask { All, Top, Bottom, Left, Right, Front, Back };      // Faces that can be shown
+    public FaceRenderMask faceRenderMask;                                           // Face to show in editor
 
-    public ShapeSettings shapeSettings;
-    public ColorSettings colorSettings;
+    public ShapeSettings shapeSettings;                                             // Settings (file) to determine the planet shape
+    public ColorSettings colorSettings;                                             // Settings (file) to determine the planet colors
 
-    [HideInInspector]
-    public bool shapeSettingsFoldout;
-    [HideInInspector]
-    public bool colorSettingsFoldout;
+    [HideInInspector] public bool shapeSettingsFoldout;                             // Is shape settings unwrapped in inspector
+    [HideInInspector] public bool colorSettingsFoldout;                             // Is color settings unwrapped in inspector
 
-    ShapeGenerator shapeGenerator = new ShapeGenerator();
-    ColorGenerator colorGenerator = new ColorGenerator();
+    ShapeGenerator shapeGenerator = new ShapeGenerator();                           // Instance of ShapeGenerator that will build the planet mesh
+    ColorGenerator colorGenerator = new ColorGenerator();                           // Instance of ColorGenerator that will build the planet texture
 
-    [SerializeField, HideInInspector]
-    MeshFilter[] meshFilters;
-    TerrainFace[] terrainFaces;
+    [SerializeField, HideInInspector] MeshFilter[] meshFilters;                     // Keep meshes in memory in order to not create GameObject at each update
+    TerrainFace[] terrainFaces;                                                     // TerrainFace array holding each terrain face of the planet
 
+    // On Inspector value change, generate planet
     private void OnValidate()
     {
         GeneratePlanet();
     }
 
+    /// <summary>
+    ///     Initialize all planet attributes and gameObject structure
+    /// </summary>
     void Initialize()
     {
         shapeGenerator.UpdateSettings(shapeSettings);
@@ -71,6 +71,9 @@ public class Planet : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///     Generate the planet shape and colors
+    /// </summary>
     public void GeneratePlanet()
     {
         Initialize();
@@ -78,6 +81,9 @@ public class Planet : MonoBehaviour
         GenerateColors();
     }
 
+    /// <summary>
+    ///     When shape settings is updated then show results if autoUpdate is true
+    /// </summary>
     public void OnShapeSettingsUpdated()
     {
         if (!autoUpdate) { return; }
@@ -85,6 +91,9 @@ public class Planet : MonoBehaviour
         GenerateMesh();
     }
 
+    /// <summary>
+    ///     When color settings is updated then show results if autoUpdate is true
+    /// </summary>
     public void OnColorSettingsUpdated()
     {
         if (!autoUpdate) { return; }
@@ -92,6 +101,9 @@ public class Planet : MonoBehaviour
         GenerateColors();
     }
 
+    /// <summary>
+    ///     Generate each faces mesh
+    /// </summary>
     void GenerateMesh()
     {
         for(int i = 0; i < meshFilters.Length; i++)
@@ -105,6 +117,9 @@ public class Planet : MonoBehaviour
         colorGenerator.UpdateElevation(shapeGenerator.elevationMinMax);
     }
 
+    /// <summary>
+    ///     Generate planet color handlers
+    /// </summary>
     void GenerateColors()
     {
         colorGenerator.UpdateColors();
@@ -117,6 +132,9 @@ public class Planet : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///     [WIP] Save planert for people to use it as prefabs.
+    /// </summary>
     public void SavePlanet()
     {
         // TODO save shape settings
