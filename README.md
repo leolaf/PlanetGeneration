@@ -1,4 +1,6 @@
 # PlanetGeneration
+## [Google Slides](https://docs.google.com/presentation/d/1SNPC4vbOUnWQxdZw4O68Bk-GxxRdYBxvVE_aXRabYLE/edit?usp=sharing)
+
 Procedural planet generation inspired by a video series by Sebastian Lague :  
 https://www.youtube.com/playlist?list=PLFt_AvWsXl0cONs3T0By4puYy6GM22ko8
 
