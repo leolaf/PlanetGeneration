@@ -1,5 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using Unity.VisualScripting;
+using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 /*
@@ -14,7 +18,9 @@ using UnityEngine;
 public class Planet : MonoBehaviour
 {
     [Range(2, 255)] public int resolution = 10;                                     // Resolution of a TerrainFace
-    public bool autoUpdate = true;                                                  
+    public bool autoUpdate = true;
+    public string planetName = "Planet";
+
     public enum FaceRenderMask { All, Top, Bottom, Left, Right, Front, Back };      // Faces that can be shown
     public FaceRenderMask faceRenderMask;                                           // Face to show in editor
 
@@ -134,14 +140,64 @@ public class Planet : MonoBehaviour
     }
 
     /// <summary>
-    ///     [WIP] Save planert for people to use it as prefabs.
+    ///     Save planet for people to use it as prefabs.
     /// </summary>
     public void SavePlanet()
     {
-        // TODO save shape settings
-        // TODO save texture
-        // TODO save material 
-        // TODO save color settings
-        // TODO save gameobject as prefab
+        string relativePathToSave = Path.Join("PlanetSaves", planetName);
+        string planetAssetPath = Path.Join("Assets", relativePathToSave);
+
+        // Save texture
+        Directory.CreateDirectory(planetAssetPath);
+        AssetDatabase.CreateAsset(colorGenerator.texture, Path.Join(planetAssetPath, "texture.asset"));
+        AssetDatabase.SaveAssets();
+
+        // Save Material
+        Shader planetShader = Shader.Find("Shader Graphs/Planet");
+        Material planetMat = null;
+        try
+        {
+            planetMat = new Material(planetShader);
+        }
+        catch
+        {
+            Debug.LogError("Could not save planet : Shader not found");
+        }
+        AssetDatabase.CreateAsset(planetMat, Path.Join(planetAssetPath, "Material.mat"));
+        AssetDatabase.SaveAssets();
+
+        // Don't forget to apply elevation min max and texture on the material asset
+        var mat = AssetDatabase.LoadAssetAtPath<Material>(Path.Join(planetAssetPath, "Material.mat"));
+        var txture = AssetDatabase.LoadAssetAtPath<Texture>(Path.Join(planetAssetPath, "texture.asset"));
+        mat.SetVector("_elevationMinMax", new Vector4(shapeGenerator.elevationMinMax.Min, shapeGenerator.elevationMinMax.Max));
+        mat.SetTexture("_texture", txture);
+        EditorUtility.SetDirty(mat);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+
+        // Save shape and color settings
+        ColorSettings newColorSettings = colorSettings.Clone();
+        newColorSettings.planetMaterial = mat;
+        ShapeSettings newShapeSettings = shapeSettings.Clone();
+        AssetDatabase.CreateAsset(newColorSettings, Path.Join(planetAssetPath, "colorSettings.asset"));
+        AssetDatabase.CreateAsset(newShapeSettings, Path.Join(planetAssetPath, "shapeSettings.asset"));
+        AssetDatabase.SaveAssets();
+
+        // Save mesh
+        foreach(var meshFilter in meshFilters)
+        {
+            Mesh mesh = new Mesh();
+            mesh.vertices = meshFilter.sharedMesh.vertices;
+            mesh.triangles = meshFilter.sharedMesh.triangles;
+            mesh.normals = meshFilter.sharedMesh.normals;
+            mesh.uv = meshFilter.sharedMesh.uv;
+            AssetDatabase.CreateAsset(mesh, Path.Join(planetAssetPath, $"{meshFilter.gameObject.name}.asset"));
+        }
+        AssetDatabase.SaveAssets();
+
+        // Save a planet instance as a prefab
+        GameObject savePrefab = new GameObject();
+        savePrefab.AddComponent<PlanetInstance>().planetPath = planetAssetPath;
+        PrefabUtility.SaveAsPrefabAsset(savePrefab, Path.Join(planetAssetPath, $"{planetName}.prefab"));
     }
 }

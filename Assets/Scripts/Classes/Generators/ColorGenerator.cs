@@ -8,7 +8,7 @@ public class ColorGenerator
     
     // The texture we will use in the shader
     // (height = number of biome, width = resolution*2 (1/2 is ocean and 1/2 is biome color)
-    Texture2D texture = null;                   
+    public Texture2D texture = null;                   
     
     const int textureResolution = 50;           // The texture resolution
     INoiseFilter biomeNoiseFilter;              // Noise to determine in which biome a point is stuated
