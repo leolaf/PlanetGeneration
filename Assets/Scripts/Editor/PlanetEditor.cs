@@ -42,14 +42,16 @@ public class PlanetEditor : Editor
         foldout = EditorGUILayout.InspectorTitlebar(foldout, settings);
         using (var check = new EditorGUI.ChangeCheckScope())
         {
-            if (!foldout) return; 
+            if (!foldout) return; // if settings isn't foldout, don't display it
 
+            // create and display the editor
             CreateCachedEditor(settings, null, ref editor);
             editor.OnInspectorGUI();
 
             if (!check.changed) return;
             if (onSettingsUpdated == null) return;
 
+            // if something changed in the editor, call the method associated
             onSettingsUpdated();
         }
     }
