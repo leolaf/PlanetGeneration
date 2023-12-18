@@ -156,8 +156,9 @@ public class Planet : MonoBehaviour
         AssetDatabase.SaveAssets();
 
         // Save Material
-        Shader planetShader = Shader.Find("Shader Graphs/Planet");
-        Material planetMat = null;
+        //Shader planetShader = Shader.Find("Shader Graphs/Planet");
+        Shader planetShader = colorSettings.planetMaterial.shader;
+        Material planetMat;
         try
         {
             planetMat = new Material(planetShader);
@@ -165,6 +166,7 @@ public class Planet : MonoBehaviour
         catch
         {
             Debug.LogError("Could not save planet : Shader not found");
+            return;
         }
         AssetDatabase.CreateAsset(planetMat, Path.Join(planetAssetPath, "Material.mat"));
         AssetDatabase.SaveAssets();
