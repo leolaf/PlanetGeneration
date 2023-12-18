@@ -12,9 +12,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7115b6227a1f31f4d997a5ba682557bd, type: 3}
   m_Name: SugarPlanetColor
   m_EditorClassIdentifier: 
-  planetMaterial: {fileID: 0}
+  planetMaterial: {fileID: 2100000, guid: f63543bef7b7bcb4fbd9055519479ab6, type: 2}
+  oceanColor:
+    serializedVersion: 2
+    key0: {r: 0, g: 0, b: 0, a: 1}
+    key1: {r: 0.10225546, g: 0.024964407, b: 0.16037738, a: 1}
+    key2: {r: 0.15686275, g: 0.019607844, b: 0.27450982, a: 0}
+    key3: {r: 0.3372549, g: 0.1254902, b: 0.5176471, a: 0}
+    key4: {r: 0.56078434, g: 0.3372549, b: 0.75294125, a: 0}
+    key5: {r: 0.83921576, g: 0.48627454, b: 1, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 11372
+    ctime1: 35273
+    ctime2: 44525
+    ctime3: 56669
+    ctime4: 61295
+    ctime5: 65535
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 1
+    m_ColorSpace: -1
+    m_NumColorKeys: 6
+    m_NumAlphaKeys: 2
   biomeColorSettings:
-    biomes: []
+    biomes:
+    - gradient:
+        serializedVersion: 2
+        key0: {r: 0.25882354, g: 0.3647059, b: 0.39607847, a: 1}
+        key1: {r: 0.09411766, g: 0.5176471, b: 0.36862746, a: 1}
+        key2: {r: 0.21960786, g: 0.28235295, b: 0.25490198, a: 0}
+        key3: {r: 0.9058824, g: 0.9058824, b: 0.9058824, a: 0}
+        key4: {r: 0, g: 0, b: 0, a: 0}
+        key5: {r: 0, g: 0, b: 0, a: 0}
+        key6: {r: 0, g: 0, b: 0, a: 0}
+        key7: {r: 0, g: 0, b: 0, a: 0}
+        ctime0: 10794
+        ctime1: 31997
+        ctime2: 50308
+        ctime3: 65535
+        ctime4: 0
+        ctime5: 0
+        ctime6: 0
+        ctime7: 0
+        atime0: 0
+        atime1: 65535
+        atime2: 0
+        atime3: 0
+        atime4: 0
+        atime5: 0
+        atime6: 0
+        atime7: 0
+        m_Mode: 1
+        m_ColorSpace: -1
+        m_NumColorKeys: 4
+        m_NumAlphaKeys: 2
+      tint: {r: 0, g: 0, b: 0, a: 0}
+      startHeight: 0
+      tintPercent: 0
     noise:
       filterType: 0
       simpleNoiseSettings:
@@ -37,33 +100,3 @@ MonoBehaviour:
     noiseOffset: 0
     noiseStrength: 0
     blendAmount: 0
-  oceanColor:
-    serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2

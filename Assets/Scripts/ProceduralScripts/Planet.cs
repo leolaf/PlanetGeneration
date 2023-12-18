@@ -149,7 +149,10 @@ public class Planet : MonoBehaviour
 
         // Save texture
         Directory.CreateDirectory(planetAssetPath);
-        AssetDatabase.CreateAsset(colorGenerator.texture, Path.Join(planetAssetPath, "texture.asset"));
+        Texture2D newTexture = new Texture2D(colorGenerator.texture.width, colorGenerator.texture.height);
+        newTexture.SetPixels(colorGenerator.texture.GetPixels());
+        newTexture.Apply();
+        AssetDatabase.CreateAsset(newTexture, Path.Join(planetAssetPath, "texture.asset"));
         AssetDatabase.SaveAssets();
 
         // Save Material

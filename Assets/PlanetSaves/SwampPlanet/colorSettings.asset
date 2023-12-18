@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7115b6227a1f31f4d997a5ba682557bd, type: 3}
+  m_Name: colorSettings
+  m_EditorClassIdentifier: 
+  planetMaterial: {fileID: 2100000, guid: 366e2b955c48a464095bbdce5f377031, type: 2}
+  oceanColor:
+    serializedVersion: 2
+    key0: {r: 0.023529414, g: 0.054901965, b: 0.023529414, a: 1}
+    key1: {r: 0.10196079, g: 0.13333334, b: 0.10588236, a: 1}
+    key2: {r: 0.13333334, g: 0.20784315, b: 0.14901961, a: 0}
+    key3: {r: 0.24705884, g: 0.45098042, b: 0.27058825, a: 0}
+    key4: {r: 0.4156863, g: 0.7058824, b: 0.427451, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 28720
+    ctime1: 42983
+    ctime2: 53006
+    ctime3: 62066
+    ctime4: 65342
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 1
+    m_ColorSpace: -1
+    m_NumColorKeys: 5
+    m_NumAlphaKeys: 2
+  biomeColorSettings:
+    biomes:
+    - gradient:
+        serializedVersion: 2
+        key0: {r: 0.47058827, g: 0.6431373, b: 0.30588236, a: 1}
+        key1: {r: 0.16470589, g: 0.46274513, b: 0.14901961, a: 1}
+        key2: {r: 0.10196079, g: 0.13333334, b: 0.10588236, a: 1}
+        key3: {r: 0, g: 0, b: 0, a: 0}
+        key4: {r: 0, g: 0, b: 0, a: 0}
+        key5: {r: 0, g: 0, b: 0, a: 0}
+        key6: {r: 0, g: 0, b: 0, a: 0}
+        key7: {r: 0, g: 0, b: 0, a: 0}
+        ctime0: 11372
+        ctime1: 33153
+        ctime2: 65535
+        ctime3: 0
+        ctime4: 0
+        ctime5: 0
+        ctime6: 0
+        ctime7: 0
+        atime0: 0
+        atime1: 53970
+        atime2: 65535
+        atime3: 0
+        atime4: 0
+        atime5: 0
+        atime6: 0
+        atime7: 0
+        m_Mode: 1
+        m_ColorSpace: -1
+        m_NumColorKeys: 3
+        m_NumAlphaKeys: 3
+      tint: {r: 0, g: 0, b: 0, a: 0}
+      startHeight: 0
+      tintPercent: 0
+    noise:
+      filterType: 0
+      simpleNoiseSettings:
+        strength: 0
+        numLayers: 1
+        baseRoughness: 0
+        roughness: 0
+        persistence: 0
+        center: {x: 0, y: 16.76, z: 0}
+        minValue: 0
+      rigidNoiseSettings:
+        strength: 1
+        numLayers: 1
+        baseRoughness: 1
+        roughness: 2
+        persistence: 0.5
+        center: {x: 0, y: 0, z: 0}
+        minValue: 0
+        weightMultipler: 0.8
+    noiseOffset: 0
+    noiseStrength: 0
+    blendAmount: 0
