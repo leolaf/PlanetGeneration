@@ -50,11 +50,11 @@ You can add as many biomes as you wish to have different climates on your planet
 **Tint:** is used to apply a tint on the color palette of the biome.  
 **Start height:** tells at which fraction of the planet the biome starts.  
 **Tint percent:** allows to adjust the strongness of the tint.  
-![Alt text](Unity_lYR1DlJUKv.gif)
+![Alt text](Images/Unity_lYR1DlJUKv.gif)
   
 **Noise:** is used in order to have more interesting edges on the biome.  
 **Blend amount:** allows to soften the demarcation between the biomes.  
-![Alt text](Unity_nm50Mwk3aN.gif)  
+![Alt text](Images/Unity_nm50Mwk3aN.gif)  
 
 **Ocean color:** is the color palette of the ocean, the same rules apply as for terrain.
-![Alt text](Unity_Qijaa89eJD.gif)
+![Alt text](Images/Unity_Qijaa89eJD.gif)
